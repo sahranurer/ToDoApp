@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="toolbarYapilacaklarDetayBaslik"
+            type="String" />
+        <variable
+            name="yapilacakDetayFragment"
+            type="com.sahraer.todoappthree.fragment.DetayYapilacaklarFragment" />
+        <variable
+            name="yapilacakNesnesi"
+            type="com.sahraer.todoappthree.entity.Yapilacaklar" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_1000"
+        tools:context=".fragment.DetayYapilacaklarFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="373dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="50dp"
+            app:boxStrokeColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarDetayYapilacaklar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextYapilacakAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Yapilacak İş"
+                android:text="@{yapilacakNesnesi.yapilacak_is}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonGuncelle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="50dp"
+            android:backgroundTint="@color/white"
+            android:onClick="@{() -> yapilacakDetayFragment.buttonguncelleTikla(yapilacakNesnesi.yapilacak_id,editTextYapilacakAd.getText().toString())}"
+            android:text="Guncelle"
+            android:textColor="@color/purple_850"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarDetayYapilacaklar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{toolbarYapilacaklarDetayBaslik}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

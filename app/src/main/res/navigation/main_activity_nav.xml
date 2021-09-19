@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaYapilacaklarFragment">
+
+    <fragment
+        android:id="@+id/anasayfaYapilacaklarFragment"
+        android:name="com.sahraer.todoappthree.fragment.AnasayfaYapilacaklarFragment"
+        android:label="fragment_anasayfa_yapilacaklar"
+        tools:layout="@layout/fragment_anasayfa_yapilacaklar" >
+        <action
+            android:id="@+id/detayYapilacakGecis"
+            app:destination="@id/detayYapilacaklarFragment" />
+        <action
+            android:id="@+id/kayitYapilacakGecis"
+            app:destination="@id/kayitYapilacaklarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detayYapilacaklarFragment"
+        android:name="com.sahraer.todoappthree.fragment.DetayYapilacaklarFragment"
+        android:label="fragment_detay_yapilacaklar"
+        tools:layout="@layout/fragment_detay_yapilacaklar" >
+        <argument
+            android:name="isNesnesi"
+            app:argType="com.sahraer.todoappthree.entity.Yapilacaklar" />
+    </fragment>
+    <fragment
+        android:id="@+id/kayitYapilacaklarFragment"
+        android:name="com.sahraer.todoappthree.fragment.KayitYapilacaklarFragment"
+        android:label="fragment_kayit_yapilacaklar"
+        tools:layout="@layout/fragment_kayit_yapilacaklar" />
+</navigation>
